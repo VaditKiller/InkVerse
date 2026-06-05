@@ -1,3 +1,14 @@
+const githubImageBase = 'https://raw.githubusercontent.com/VaditKiller/InkVerse/main/Multimedia';
+
+const categoryImageFiles = {
+  Anime: 'anime-neon.svg',
+  Terror: 'bosque-fantasma.svg',
+  Chibi: 'chibi-estrella.svg',
+  Caricaturesco: 'retrato-satirico.svg',
+  Realista: 'atardecer-realista.svg',
+  Paisaje: 'montanas-amanecer.svg',
+};
+
 const categoryVisuals = {
   Anime: {
     scene: `
@@ -115,9 +126,8 @@ const categoryVisuals = {
 };
 
 function categoryArtworkImage(category) {
-  const visual = categoryVisuals[category] || categoryVisuals.Anime;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Ilustracion ${category}">${visual.scene}</svg>`;
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+  const fileName = categoryImageFiles[category] || categoryImageFiles.Anime;
+  return `${githubImageBase}/${fileName}`;
 }
 
 function avatarImage(label, color = '#d62828') {
