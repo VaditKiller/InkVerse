@@ -42,9 +42,10 @@ El proyecto resuelve de forma simulada la necesidad de contar con un espacio web
 
 ### Acceso al sitio desplegado
 
-El proyecto está publicado en GitHub Pages y puede visitarse desde el siguiente enlace:
+El proyecto está publicado en GitHub Pages y Netlify. Puede visitarse desde los siguientes enlaces:
 
-[https://vaditkiller.github.io/InkVerse/](https://vaditkiller.github.io/InkVerse/)
+- **GitHub Pages:** [https://vaditkiller.github.io/InkVerse/](https://vaditkiller.github.io/InkVerse/)
+- **Netlify:** [https://ink-verse.netlify.app/](https://ink-verse.netlify.app/)
 
 ### Clonar el proyecto localmente
 
