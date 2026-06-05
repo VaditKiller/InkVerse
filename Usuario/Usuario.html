@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usuario | InkVerse</title>
+  <link rel="stylesheet" href="Usuario.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="panel profile-card">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Cuenta</p>
+          <h1 id="profileTitle">Tu perfil</h1>
+        </div>
+        <button id="openEditBtn" class="ghost-btn" type="button" aria-label="Editar perfil">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/></svg>
+          Editar perfil
+        </button>
+      </div>
+
+      <div class="profile-layout">
+        <aside class="profile-summary">
+          <img id="avatarPreview" class="avatar-large" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='60' fill='%23d62828'/%3E%3Ccircle cx='60' cy='48' r='22' fill='%23fff7f7'/%3E%3Cpath d='M24 106c8-28 20-42 36-42s28 14 36 42' fill='%23fff7f7'/%3E%3Ctext x='60' y='113' text-anchor='middle' fill='%233b0505' font-family='Arial' font-size='20' font-weight='800'%3EI%3C/text%3E%3C/svg%3E" alt="Foto de perfil" />
+          <div>
+            <h2 id="profileNameLabel">Usuario</h2>
+            <p id="profileEmailLabel" class="muted">usuario@inkverse.dev</p>
+            <p id="profilePhoneLabel" class="muted">+591 70000000</p>
+          </div>
+        </aside>
+
+        <section class="profile-detail-card">
+          <h3>Datos actuales</h3>
+          <ul id="profileDetails" class="detail-list"></ul>
+          <div class="oauth-grid">
+            <button class="oauth-btn facebook-btn" type="button" data-oauth="Facebook" aria-label="Conectar con Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-9h3l.5-4h-3.5V3.5C13.5 2.7 14.1 2 15 2h2V0h-3.2C11.4 0 10 1.4 10 3.2V9H7v4h3v9h3.5z"/></svg>
+              Facebook
+            </button>
+            <button class="oauth-btn google-btn" type="button" data-oauth="Google" aria-label="Conectar con Google">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.35 11.1h-9.17v3.02h5.27c-.23 1.2-.94 2.2-2.01 2.87v2.38h3.26c1.9-1.75 2.99-4.33 2.99-7.27 0-.64-.06-1.25-.17-1.84z"/><path d="M12.18 22c2.7 0 4.96-.89 6.62-2.42l-3.26-2.38c-.9.61-2.05.96-3.36.96-2.59 0-4.79-1.75-5.58-4.1H3.2v2.57A10 10 0 0 0 12.18 22z"/><path d="M6.6 13.06a6.03 6.03 0 0 1 0-3.86V6.63H3.2a10.02 10.02 0 0 0 0 7.8l3.4-1.37z"/><path d="M12.18 6.04c1.46 0 2.77.5 3.8 1.48l2.84-2.84A9.98 9.98 0 0 0 12.18 2 10 10 0 0 0 3.2 6.63l3.4 2.57c.79-2.35 2.99-4.16 5.58-4.16z"/></svg>
+              Google
+            </button>
+            <button class="oauth-btn gmail-btn" type="button" data-oauth="Gmail" aria-label="Conectar con Gmail">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0 2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Gmail
+            </button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <div id="profileModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeProfileModalBtn" class="close-btn" type="button" aria-label="Cerrar editor de perfil">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <h2 id="modalTitle">Editar perfil</h2>
+      <form id="profileForm" class="upload-form" novalidate>
+        <div class="avatar-preview-wrap">
+          <img id="profilePreview" class="avatar-large" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='60' fill='%23d62828'/%3E%3Ccircle cx='60' cy='48' r='22' fill='%23fff7f7'/%3E%3Cpath d='M24 106c8-28 20-42 36-42s28 14 36 42' fill='%23fff7f7'/%3E%3Ctext x='60' y='113' text-anchor='middle' fill='%233b0505' font-family='Arial' font-size='20' font-weight='800'%3EI%3C/text%3E%3C/svg%3E" alt="Vista previa del avatar" />
+          <label class="file-chip">
+            <input id="avatarInput" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" aria-label="Seleccionar foto de perfil" />
+            Cambiar foto (máx. 2 MB)
+          </label>
+          <p id="avatarFeedback" class="hint-text" role="status" aria-live="polite">Vista previa lista para guardar.</p>
+        </div>
+        <label>Nombre
+          <input id="editName" type="text" maxlength="40" required />
+        </label>
+        <label>Teléfono
+          <input id="editPhone" type="tel" pattern="^\\+?[0-9\\s()-]{7,20}$" required />
+        </label>
+        <label>Correo
+          <input id="editEmail" type="email" required />
+        </label>
+        <label>Contraseña actual
+          <input id="currentPassword" type="password" autocomplete="current-password" placeholder="Solo si quieres cambiarla" />
+        </label>
+        <label>Nueva contraseña
+          <input id="newPassword" type="password" minlength="6" autocomplete="new-password" placeholder="Mínimo 6 caracteres" />
+        </label>
+        <label>Confirmar nueva contraseña
+          <input id="confirmPassword" type="password" minlength="6" autocomplete="new-password" />
+        </label>
+        <button class="primary-btn full" type="submit">Guardar cambios</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="Usuario.js"></script>
+</body>
+</html>
