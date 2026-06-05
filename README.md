@@ -101,7 +101,7 @@ InkVerse/
 ## 7. Autor
 
 **Estudiante:** Vadit Sabrina Soux Vargas  
-**Correo institucional:** pendiente de completar
+**Correo institucional:** cbbe.vaditsabrina.soux.va@unifranz.edu.bo
 
 ## Repositorio
 
